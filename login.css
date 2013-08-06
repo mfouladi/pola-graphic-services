@@ -1,0 +1,40 @@
+html,body {
+	/*background-color: #000066;*/
+	height: 100%;
+}
+
+.wrapper{
+    width:  720px;
+    margin-top: 20px;
+    margin-bottom: 0;
+	border: 5px solid blue;
+	padding:0;
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+}
+
+h1 {
+	margin: 0 0 0 0;
+	padding: 0;
+	text-decoration:underline;
+	color: red;
+}
+
+h4 {
+	margin: 0 0 0 0;
+	padding: 0;
+	color: navy;
+}
+
+.title{
+	margin: 20px 0 20px 0;
+}
+
+#login_instructions{
+	margin: 60px 0 20px 0;
+}
+
+input{
+	border: 1px black solid;
+}
