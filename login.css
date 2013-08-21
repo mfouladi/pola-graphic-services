@@ -1,30 +1,33 @@
 html,body {
-	/*background-color: #000066;*/
+
 	height: 100%;
+	
 }
 
 .wrapper{
     width:  720px;
     margin-top: 20px;
     margin-bottom: 0;
-	border: 5px solid blue;
+	/*border: 5px solid blue;*/
 	padding:0;
     margin-left: auto;
     margin-right: auto;
 	text-align: center;
+	background-image: url(texture-gif/yellow.gif);
+	color: #4D008D;
+	/*background-color: black;*/
 }
 
 h1 {
 	margin: 0 0 0 0;
 	padding: 0;
-	text-decoration:underline;
-	color: red;
+	text-shadow: -0.5px 0 1px black, 0 0.5px 1px black, 0.5px 0 1px black, 0 -0.5px 1px black;
 }
 
 h4 {
 	margin: 0 0 0 0;
-	padding: 0;
-	color: navy;
+	padding: 0;	
+	text-shadow: -0.1px 0 0.1px black, 0 0.1px 0.1px black, 0.1px 0 0.1px black, 0 -0.1px 0.1px black;
 }
 
 .title{
@@ -41,4 +44,16 @@ input{
 
 table{
 	margin:0 Auto 0 Auto;
+}
+
+.submit {
+	width: 90px;
+	text-shadow: -1px 1px 1px black, 1px -1px 1px black, -1px -1px 1px black, 1px 1px 1px black;
+	font-size:15px;
+	height: 30px;
+	border: none;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	background: #0c0 url(texture-gif/green2.gif) 0 0 no-repeat; 
 }
