@@ -38,3 +38,7 @@ h4 {
 input{
 	border: 1px black solid;
 }
+
+table{
+	margin:0 Auto 0 Auto;
+}
