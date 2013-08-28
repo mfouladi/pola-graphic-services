@@ -1,3 +1,21 @@
+<?php
+	session_start();
+	if(isset($_SESSION['firstName']) && isset($_SESSION['lastName'])){
+		$firstName = $_SESSION['firstName'];
+		$lastName = $_SESSION['lastName'];
+		$requestType = $_SESSION['requestType'];
+	
+		echo "<p>Welcome $firstName $lastName</p>";
+		echo "<p>Your Request Type was $requestType</p>";
+		unset($_SESSION['firstName']); 
+		unset($_SESSION['lastName']); 
+		unset($_SESSION['requestType']);
+	}else{
+		echo "<p>shit fuck crap no</p>";
+	}
+	session_destroy();
+?>
+
 <html>
 	<head>
 	</head>
@@ -13,7 +31,7 @@
 							<tr>
 								<td width="78">First Name</td>
 								<td width="6">:</td>
-								<td width="294"><input name="firstName" type="text" id="firstName"></td>
+								<td width="294"><input name="firstName" type="text" id="firstName"> </td>
 							</tr>
 							<tr>
 								<td>Last Name</td>
