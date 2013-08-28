@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./index.css" />
+</head>
+<body>
+	<div id="container">
+		<div class="order-header">
+			<h1>Graphics Service Request</h1>
+		</div>
+		<div class="content">		
+			<p class="introduction">
+				Welcome to the Graphic Services Request form.<br>
+				<span>Type in your name and request type to get started.</span>
+			</p>
+			<form method="post" action="check_login.php" class="order-form" id="order">
+				<label for="first-name">First Name <sup>*</sup></label><br />
+				
+				<input type="text" name="first-name" class="order-input" id="first-name" /><br />
+				
+				<br clear="all" />
+				
+				<label for="last-name">Last Name <sup>*</sup></label><br />
+				<input type="text" name="last-name" class="order-input" id="last-name" /><br />
+				<br clear="all" />
+				
+				<label for="request-type">Request Type <sup>*</sup></label><br />
+				<select name="request-type" id="request-type" class="order-select">
+					<option></option>
+					<option>Copy Center Request</option>
+					<option>Design Request</option>
+					<option>Audio/Video Request</option>
+				</select>
+				<br clear="all" />
+				<br>
+				<div class="submit-hold"><input type="submit" name="submit-order" value="Submit" class="submit-order" /></div>
+			</form>
+		</div>
+		<div class="footer-logo">Awesome</div>
+	</div>
+</body>
+</html>
