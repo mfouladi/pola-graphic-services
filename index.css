@@ -118,7 +118,7 @@ p.introduction {
 			font-size: 14px;
 		}
 
-	.order-form .order-input {
+	.order-input {
 		font-family: Georgia, serif;
 		color: #042d2e;
 		font-size: 18px;
@@ -132,16 +132,15 @@ p.introduction {
 		font-family: Georgia, serif;
 		color: #042d2e;
 		font-size: 18px;
-		width: 390px;
-		height:42px;
+		width: 391px;
+		height:40px;
 		margin: 9px 0 8px 0; 
 		padding: 5px 0 0 20px;
 		border: 4px solid #32a3ad;
 	}
-		.order-form .order-input:focus {
+		.order-input:focus, .order-input:hover, .order-select:focus, .order-select:hover{
 			background: url(../imgs/order-input-bg-test.png) no-repeat;
 			border: 4px solid #205B64;
-			
 		}
 
 	.order-form .hr {
@@ -153,48 +152,10 @@ p.introduction {
 		.hr hr {
 			display: none;
 		}
-		
-	h2.project-basics {
-		width: 243px;
-		height: 34px;
-		background: url(../imgs/project-basics-bg.png) no-repeat;
-		text-indent: -9999px;
-	}
 
-	.delivery-time {
-		font-family: Verdana, serif;
-		color: #595a5a;
-		font-size: 13px;
-		line-height: 1.4em;
-		padding: 35px 0 0 0;
-		clear: both;
+	.login_message{
+		text-align:center;
 	}
-	
-		.delivery-time span {
-			color: #262727;
-			font-size: 12px;
-			text-transform: uppercase;
-		}
-
-	h2.project-type {
-		width: 216px;
-		height: 34px;
-		background: url(../imgs/project-type-bg.png) no-repeat;
-		text-indent: -9999px;
-	}
-	
-	.order-form .project-description {
-		font-family: Georgia, serif;
-		font-size: 16px;
-		color: #646464;
-		padding: 5px 0 13px 0;
-	}
-	
-		.project-description sup {
-			color: #b31808;
-			font-size: 14px;
-		}
-		
 	.order-form .project-type-select, .order-form .project-type-selected {
 		font-family: Georgia, serif;
 		color: #1b6d57;
@@ -450,6 +411,9 @@ p.introduction {
 		}
 		
 			.order-form .submit-order:hover {
+				background-position: 0 -63px;
+			}
+			.order-form .submit-order:focus {
 				background-position: 0 -63px;
 			}
 			

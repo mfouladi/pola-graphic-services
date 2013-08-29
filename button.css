@@ -1,0 +1,25 @@
+.button {
+   display: -moz-inline-stack;
+   display: inline-block;
+   width: 155px;
+   height: 37px;
+   background: url(./Images/button_bg.png) no-repeat;
+   /*line-height: 37px;
+   vertical-align: text-middle;*/
+   text-align: center;
+   color: #ffffff;
+   font-family: Komika;
+   font-size: 24px;
+   font-weight: bold;
+   font-style: normal;
+   text-shadow: none;
+   margin-left: 30px;
+   margin-right:30px;
+   
+}
+.button:hover, .button:focus{
+	font-style: italic;
+}
+.button > span {
+   display: -moz-inline-block;
+}

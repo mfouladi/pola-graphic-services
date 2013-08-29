@@ -4,11 +4,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="./index.css" />
+	<link rel="stylesheet" type="text/css" href="./button.css" />
 </head>
 <body>
 	<div id="container">
 		<div class="order-header">
-			<h1>Graphics Service Request</h1>
+			<h1>Graphic Services Request</h1>
 		</div>
 		<div class="content">		
 			<p class="introduction">
@@ -27,18 +28,13 @@
 				<br clear="all" />
 				
 				<label for="request-type">Request Type <sup>*</sup></label><br />
-				<select name="request-type" id="request-type" class="order-select">
-					<option></option>
-					<option>Copy Center Request</option>
-					<option>Design Request</option>
-					<option>Audio/Video Request</option>
-				</select>
-				<br clear="all" />
-				<br>
-				<div class="submit-hold"><input type="submit" name="submit-order" value="Submit" class="submit-order" /></div>
+				<br clear="all" />				
+				<input type='submit' name="copyCenter" class='button' value="Copy Center">
+				<input type='submit' name="audioVideo" class='button' value="Audio/Video">
+				<input type='submit' name="design" class='button' value="Design">
 			</form>
+			<p class='login_message'>If you are an administrator, <a href="./secure_login.php">login in here</a>.</p>
 		</div>
-		<div class="footer-logo">Awesome</div>
 	</div>
 </body>
 </html>

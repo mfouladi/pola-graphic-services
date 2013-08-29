@@ -11,7 +11,7 @@
 		unset($_SESSION['lastName']); 
 		unset($_SESSION['requestType']);
 	}else{
-		echo "<p>shit fuck crap no</p>";
+		echo "<p>no</p>";
 	}
 	session_destroy();
 ?>

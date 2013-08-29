@@ -13,13 +13,9 @@
 	
 	$firstName=$_POST['first-name'];
 	$lastName=$_POST['last-name'];
-	if($_POST['copyCenter']){
-		$requestType=$_POST['copyCenter'];
-	}else if($_POST['audioVideo']){
-		$requestType=$_POST['audioVideo'];
-	}else if($_POST['design']){
-		$requestType=$_POST['design'];
-	}
+	$input_password=$_POST['password'];
+	$requestType=$_POST['request-type'];
+		
 	$sql = "SELECT * FROM users WHERE first_name='$firstName' and last_name='$lastName'";
 	$res = odbc_prepare($connection, $sql);
 	$success = odbc_execute($res);
@@ -39,16 +35,17 @@
 		$_SESSION['email'] = odbc_result($res, "email");
 		$accessType = odbc_result($res, "access_type");
 		$_SESSION['accessType'] = $accessType;
-		
-		if($requestType === "Copy Center"){
-			$extra = 'copy_center.php';
-		}else if($requestType === "Design"){
-			$extra = 'design_request.php';
-		}else if($requestType === "Audio/Video"){
-			$extra = 'av_request.php';
+		$real_password = odbc_result($res, "password");
+		if($real_password === NULL)
+		{
+			$real_password = "";
+		}
+		if($real_password === $input_password)
+		{
+			$extra = 'admin.php';
 		}
 	}
 	header("Location: http://$host$uri/$extra");	
 
-
+/*$real_password === $input_password*/
 ?>
