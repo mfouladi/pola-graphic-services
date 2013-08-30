@@ -13,7 +13,7 @@ html,body {
     margin-left: auto;
     margin-right: auto;
 	text-align: center;
-	background-image: url(texture-gif/yellow.gif);
+	background-image: url(Images/texture-gif/yellow.gif);
 	color: #4D008D;
 	/*background-color: black;*/
 }
@@ -55,5 +55,5 @@ table{
 	margin: 0;
 	padding: 0;
 	color: #fff;
-	background: #0c0 url(texture-gif/green2.gif) 0 0 no-repeat; 
+	background: #0c0 url(Images/texture-gif/green2.gif) 0 0 no-repeat; 
 }

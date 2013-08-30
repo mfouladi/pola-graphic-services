@@ -1,9 +1,13 @@
+<?php
+	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
+?>
 <!DOCTYPE html>
 <html>
 <head>
+	<base href=<?php echo $host;?>>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="./index.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
 </head>
 <body>
 	<div id="container">
@@ -16,7 +20,6 @@
 				<span></span>
 			</p>
 		</div>
-		<div class="footer-logo">Awesome</div>
 	</div>
 </body>
 </html>

@@ -3,7 +3,7 @@
    display: inline-block;
    width: 155px;
    height: 37px;
-   background: url(./Images/button_bg.png) no-repeat;
+   background: url(../Images/button_bg.png) no-repeat;
    /*line-height: 37px;
    vertical-align: text-middle;*/
    text-align: center;

@@ -1,51 +1,82 @@
-
 <?php
-	ini_set('display_errors', 'On'); 
-	error_reporting(E_ALL);
-	$db_host="POLA-SQLTEST"; // Host name
-	$db_user="graphics"; // Mysql username
-	$db_pwd="Graphics@service"; // Mysql password
-	$db_name="Graphics_Services"; // Database name
-	$tbl_name="users"; // Table name
-
-	//Connect
-	$connection = odbc_connect("Driver={SQL Server};Server=$db_host;Database=$db_name",$db_user,$db_pwd );
-	
-	$firstName=$_POST['first-name'];
-	$lastName=$_POST['last-name'];
-	$input_password=$_POST['password'];
-	$requestType=$_POST['request-type'];
-		
-	$sql = "SELECT * FROM users WHERE first_name='$firstName' and last_name='$lastName'";
-	$res = odbc_prepare($connection, $sql);
-	$success = odbc_execute($res);
-
-	$count = odbc_num_rows($res);
-	
-	session_start(); 
-	$_SESSION['firstName'] = $firstName;
-	$_SESSION['lastName'] = $lastName;
-	$_SESSION['requestType'] = $requestType;
-	$host  = $_SERVER['HTTP_HOST'];
-	$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-	$extra = '';
-	if($count === 1){
-		$_SESSION['division'] = odbc_result($res, "division");
-		$_SESSION['phoneNumber'] = odbc_result($res, "phone_number");
-		$_SESSION['email'] = odbc_result($res, "email");
-		$accessType = odbc_result($res, "access_type");
-		$_SESSION['accessType'] = $accessType;
-		$real_password = odbc_result($res, "password");
-		if($real_password === NULL)
-		{
-			$real_password = "";
-		}
-		if($real_password === $input_password)
-		{
-			$extra = 'admin.php';
-		}
-	}
-	header("Location: http://$host$uri/$extra");	
-
-/*$real_password === $input_password*/
+	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
 ?>
+<?php
+	session_start();
+	if(isset($_SESSION['validName'])){
+		$isValidName = $_SESSION['validName'];
+		$firstName = '';
+		$lastName = '';
+		if(isset($_SESSION['firstName'])){
+			$firstName = $_SESSION['firstName'];
+		}
+		if(isset($_SESSION['lastName'])){
+			$lastName = $_SESSION['lastName'];
+		}
+	}else{
+		$isValidName = TRUE;
+	}
+	if(isset($_SESSION['validPassword'])){
+		$isValidPassword = $_SESSION['validPassword'];
+	}else{
+		$isValidPassword = TRUE;
+	}
+	if(isset($_SESSION['validAccess'])){
+		$isValidAccess = $_SESSION['validAccess'];
+	}else{
+	}
+	
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<base href=<?php echo $host;?>>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" type="text/css" href="css/button.css" />
+</head>
+<body>
+	<div id="container">
+		<div class="order-header">
+			<h1>Graphics Department Login</h1>
+		</div>
+		<div class="content">		
+			<p class="introduction">
+				Welcome to the Graphics Administrative Page.<br>
+				<span>Type in your password to start session.</span>
+			</p>
+			<form method="post" action="valid_login/admin/" class="order-form" id="order">
+				<p class="login-error">
+					<?php
+					if(!$isValidName){
+						echo "Please Check Your Name and Try Again.";
+					}else if(!$isValidAccess){
+						echo "You have not been granted the privledge to access. Please talk to a Graphics Department Administrator to gain access.";
+					}else if(!$isValidPassword){
+						echo "Please Check Your Password and Try Again."; 
+					}
+					?>
+				</p>
+				<label for="first-name">First Name <sup>*</sup></label><br />
+				
+				<input type="text" name="first-name" class="order-input" id="first-name" value="<?php echo $firstName;?>"/><br />
+				
+				<br clear="all" />
+				
+				<label for="last-name">Last Name <sup>*</sup></label><br />
+				<input type="text" name="last-name" class="order-input" id="last-name" value="<?php echo $lastName;?>"/><br />
+				<br clear="all" />
+				
+				<label for="password">Password<sup>*</sup></label><br />
+				<input type="password" name="password" class="order-input" id="password" /><br />
+				<br clear="all" />
+				
+				<br>
+				<div class="submit-hold"><input type="submit" name="submit-order" value="Submit" class="submit-order" /></div>
+			</form>
+			<input type='button' class='button' style="width:80px;height:30px;margin-bottom:10px;background-size: 100% 100%;'" value="Back" onclick="location.href = ''">
+		</div>
+	</div>
+</body>
+</html>
