@@ -1,6 +1,23 @@
 <?php
 	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
 ?>
+<?php
+	/*session_start();
+	if(isset($_SESSION['validEmail'])){
+		$isValidEmail = $_SESSION['validEmail'];
+		$requestType = $_SESSION['requestType'];
+		if(!$isValidEmail || $requestType != "Audio/Video"){
+			header("Location: $host");
+			//Unset any previously saved session variables
+			session_unset();
+		}else{
+			$portEmail = '';
+			$portEmail = $_SESSION['portEmail'];
+		}
+	}else{
+		header("Location: $host");
+	}*/
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -11,8 +28,13 @@
         <title></title>
     </head>
     <body>
-        <div class="wrapper">
-			<h1>Audio/Video Request Form</h1>
+		<div class="wrapper">
+			<div class="header">
+				<h1>Audio/Video Request Form</h1>
+			</div>
+			<div class="content">
+			
+			</div>
         </div>
     </body>
 </html>

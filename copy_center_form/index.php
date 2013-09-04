@@ -1,6 +1,23 @@
 <?php
 	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
 ?>
+<?php
+	/*session_start();
+	if(isset($_SESSION['validEmail'])){
+		$isValidEmail = $_SESSION['validEmail'];
+		$requestType = $_SESSION['requestType'];
+		if(!$isValidEmail || $requestType != "Copy Center"){
+			header("Location: $host");
+			//Unset any previously saved session variables
+			session_unset();
+		}else{
+			$portEmail = '';
+			$portEmail = $_SESSION['portEmail'];
+		}
+	}else{
+		header("Location: $host");
+	}*/
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,7 +35,7 @@
 				<div class="table_wrapper">
 					<form action="" method="post">
 					
-						<table class="inline_table" id="CopyDetails">
+						<table class="" id="CopyDetails">
 							<tr>
 								<td colspan="2">
 									# of Copies:
@@ -38,7 +55,7 @@
 							</tr>
 						</table>
 						
-						<table class="large_table" id="PaperOptions">
+						<table class="" id="PaperOptions">
 							<td>
 								Paper Size
 								<ul>
@@ -101,7 +118,7 @@
 						
 						<h3>Finishing Operations</h3>
 						
-						<table class="large_table" id="FinishingOptions">		
+						<table class="" id="FinishingOptions">		
 							<td>
 								Binding
 								<ul>
@@ -184,7 +201,7 @@
 						</table>
 						
 						
-						<table class="inline_table" id="PrintingOptions">
+						<table class="" id="PrintingOptions">
 							<tr>
 								<td>
 									SCAN to File (printing):
@@ -220,13 +237,16 @@
 								</td>
 							</tr>
 						</table>
+						
 						<h4>Additional Information (Optional)</h4>
-						<textarea class="large_text" name="additional_info"></textarea>
+						<textarea class="" name="additional_info"></textarea>
+						
 						<table id="SubmitButton">
 							<tr>
 								<td><input type="submit" name="submit" value="Submit"></td>
 							</tr>
 						</table>
+						
 					</form>
 					
 				</div>

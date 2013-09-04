@@ -11,8 +11,7 @@
 	$connection = odbc_connect("Driver={SQL Server};Server=$srvr_name;Database=$db_name",$db_user,$db_pwd );
 	
 	//Receive Posts from Form
-	$firstName=$_POST['first-name'];
-	$lastName=$_POST['last-name'];
+	$portEmail = $_POST['portEmail'];
 	
 	//Determine Which Button Was Clicked on Form
 	if($_POST['copyCenter']){
@@ -23,12 +22,12 @@
 		$requestType=$_POST['design'];
 	}
 	
-	//Run a Select Query on User Table with First and Last Name
-	$sql = "SELECT * FROM users WHERE first_name='$firstName' and last_name='$lastName'";
+	//Run a Select Query on User Table with Email Address
+	$sql = "SELECT * FROM users WHERE email='$portEmail'";
 	$res = odbc_prepare($connection, $sql);
 	$success = odbc_execute($res);
 	
-	//Run a Select Query on User Table with First and Last Name
+	//Run a Select Query on User Table with Input Email Address
 	$count = odbc_num_rows($res);
 	
 	//Unset any previously saved session variables
@@ -36,14 +35,17 @@
 	
 	//Starts Saving Specified Data in Current Session
 	session_start(); 
-	$_SESSION['firstName'] = $firstName;
-	$_SESSION['lastName'] = $lastName;
+	$_SESSION['email'] = $portEmail;
 	$_SESSION['requestType'] = $requestType;
+	$_SESSION['validEmail']= FALSE;
 	$uri = '';
+	
 	if($count === 1){
+		$_SESSION['validEmail']= TRUE;
+		$_SESSION['firstName'] = odbc_result($res, "first_name");
+		$_SESSION['lastName'] = odbc_result($res, "last_name");
 		$_SESSION['division'] = odbc_result($res, "division");
 		$_SESSION['phoneNumber'] = odbc_result($res, "phone_number");
-		$_SESSION['email'] = odbc_result($res, "email");
 		
 		if($requestType === "Copy Center"){
 			$uri = 'copy_center_form/';
@@ -52,8 +54,6 @@
 		}else if($requestType === "Audio/Video"){
 			$uri = 'av_form/';
 		}
-	}else{
-		$_SESSION['validName']= FALSE;
 	}
 	header("Location: $host$uri");
 

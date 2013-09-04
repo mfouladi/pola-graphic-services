@@ -3,18 +3,14 @@
 ?>
 <?php
 	session_start();
-	if(isset($_SESSION['validName'])){
-		$isValidName = $_SESSION['validName'];
-		$firstName = '';
-		$lastName = '';
-		if(isset($_SESSION['firstName'])){
-			$firstName = $_SESSION['firstName'];
-		}
-		if(isset($_SESSION['lastName'])){
-			$lastName = $_SESSION['lastName'];
+	if(isset($_SESSION['validEmail'])){
+		$isValidEmail = $_SESSION['validEmail'];
+		$portEmail = '';
+		if(isset($_SESSION['portEmail'])){
+			$portEmail = $_SESSION['portEmail'];
 		}
 	}else{
-		$isValidName = TRUE;
+		$isValidEmail = TRUE;
 	}
 	if(isset($_SESSION['validPassword'])){
 		$isValidPassword = $_SESSION['validPassword'];
@@ -24,8 +20,10 @@
 	if(isset($_SESSION['validAccess'])){
 		$isValidAccess = $_SESSION['validAccess'];
 	}else{
+		$isValidAccess = TRUE;
 	}
-	
+	//Unset any previously saved session variables
+	session_unset();
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,8 +47,8 @@
 			<form method="post" action="valid_login/admin/" class="order-form" id="order">
 				<p class="login-error">
 					<?php
-					if(!$isValidName){
-						echo "Please Check Your Name and Try Again.";
+					if(!$isValidEmail){
+						echo "Please Check Your Email and Try Again.";
 					}else if(!$isValidAccess){
 						echo "You have not been granted the privledge to access. Please talk to a Graphics Department Administrator to gain access.";
 					}else if(!$isValidPassword){
@@ -58,14 +56,9 @@
 					}
 					?>
 				</p>
-				<label for="first-name">First Name <sup>*</sup></label><br />
 				
-				<input type="text" name="first-name" class="order-input" id="first-name" value="<?php echo $firstName;?>"/><br />
-				
-				<br clear="all" />
-				
-				<label for="last-name">Last Name <sup>*</sup></label><br />
-				<input type="text" name="last-name" class="order-input" id="last-name" value="<?php echo $lastName;?>"/><br />
+				<label for="portEmail">Port Email <sup>*</sup></label><br />
+				<input type="text" name="portEmail" class="order-input" id="portEmail" value="<?php echo $portEmail;?>" /><br />
 				<br clear="all" />
 				
 				<label for="password">Password<sup>*</sup></label><br />

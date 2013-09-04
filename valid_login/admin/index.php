@@ -11,17 +11,15 @@
 	$connection = odbc_connect("Driver={SQL Server};Server=$srvr_name;Database=$db_name",$db_user,$db_pwd );
 	
 	//Receive Posts from Form
-	$firstName=$_POST['first-name'];
-	$lastName=$_POST['last-name'];
+	$portEmail = $_POST['portEmail'];
 	$input_password=$_POST['password'];
-	$requestType=$_POST['request-type'];
 	
-	//Run a Select Query on User Table with First and Last Name
-	$sql = "SELECT * FROM users WHERE first_name='$firstName' and last_name='$lastName'";
+	//Run a Select Query on User Table with Email Address
+	$sql = "SELECT * FROM users WHERE email='$portEmail'";
 	$res = odbc_prepare($connection, $sql);
 	$success = odbc_execute($res);
 	
-	//Run a Select Query on User Table with First and Last Name
+	//Run a Select Query on User Table with Input Email Address
 	$count = odbc_num_rows($res);
 	
 	//Unset any previously saved session variables
@@ -29,21 +27,24 @@
 	
 	//Starts Saving Specified Data in Current Session
 	session_start(); 
-	$_SESSION['firstName'] = $firstName;
-	$_SESSION['lastName'] = $lastName;
-	$_SESSION['validName']= FALSE;
+	$_SESSION['email'] = $portEmail;
+	$_SESSION['validEmail']= FALSE;
 	$_SESSION['validAccess']= FALSE;
 	$_SESSION['validPassword']= FALSE;
 	$uri = 'admin_login.php';
 	if($count === 1){
-		$_SESSION['validName']= TRUE;
+		$_SESSION['validEmail']= TRUE;
 		$accessType = odbc_result($res, "access_type");
 		if($accessType > 0){
 			$_SESSION['validAccess']= TRUE;
+			
+			$_SESSION['firstName'] = odbc_result($res, "first_name");
+			$_SESSION['lastName'] = odbc_result($res, "last_name");
 			$_SESSION['division'] = odbc_result($res, "division");
 			$_SESSION['phoneNumber'] = odbc_result($res, "phone_number");
-			$_SESSION['email'] = odbc_result($res, "email");
+			
 			$real_password = odbc_result($res, "password");
+			
 			if($real_password === NULL){
 				$real_password = "";
 				//Should set up password
@@ -57,5 +58,4 @@
 	}
 	header("Location: $host$uri");	
 
-/*$real_password === $input_password*/
 ?>
