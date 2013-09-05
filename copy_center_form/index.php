@@ -2,7 +2,7 @@
 	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
 ?>
 <?php
-	/*session_start();
+	session_start();
 	if(isset($_SESSION['validEmail'])){
 		$isValidEmail = $_SESSION['validEmail'];
 		$requestType = $_SESSION['requestType'];
@@ -16,7 +16,7 @@
 		}
 	}else{
 		header("Location: $host");
-	}*/
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +24,7 @@
 		<base href=<?php echo $host;?>>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="css/form.css"/>
+		<link rel="stylesheet" type="text/css" href="css/button.css" />
         <title></title>
     </head>
     <body>
@@ -241,11 +242,10 @@
 						<h4>Additional Information (Optional)</h4>
 						<textarea class="" name="additional_info"></textarea>
 						
-						<table id="SubmitButton">
-							<tr>
-								<td><input type="submit" name="submit" value="Submit"></td>
-							</tr>
-						</table>
+						
+						<div class="submit">
+							<input type='submit' name="submit" class='button' value="Submit">
+						</div>
 						
 					</form>
 					

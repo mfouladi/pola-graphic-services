@@ -19,11 +19,12 @@ body{
 
 .header{
 	width: 692px;
-	padding: 0 84px;
+	padding: 0 84px 0 84px;
 	background: #ffffff;
 	border-left: 18px solid #c1c1c1;
 	border-right: 18px solid #c1c1c1;
 	border-top: 18px solid #c1c1c1;
+	margin: 0;
 	overflow: hidden;
 }
 
@@ -34,6 +35,30 @@ body{
 	line-height: 30px;
 	padding: 36px 0 34px 0;
 	border-bottom: 1px solid #bebebe;
+}
+
+.section{
+	border-bottom: 1px solid #bebebe;
+	width: 100%;
+	padding: 0 0 15px 0;
+}
+
+.section h1{
+	font-family: Georgia,serif;
+	color: #2f2d2d;
+	font-size: 24px;
+}
+
+#job_name input{
+	width: 500px;
+	border:1px solid gray;
+	text-align: center;
+}
+
+
+
+.hidden{
+	display: none;
 }
 	
 .content{
