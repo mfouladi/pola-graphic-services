@@ -66,11 +66,14 @@
 				<br clear="all" />
 				
 				<br>
-				<div class="submit-hold">
-					<input type="submit" name="submit-order" value="Submit" class="submit-order" />
+				<div class="submit">
+					<input type='submit' name="submit" class='button' value="Submit">
 				</div>
 			</form>
-			<input type='button' class='button' style="width:80px;height:30px;margin-bottom:10px;background-size: 100% 100%;'" value="Back" onclick="location.href = ''">
+			
+			<div class="back">
+				<input type='button' name="back" class='button' value="Back" onclick="location.href = ''">
+			</div>
 		</div>
 	</div>
 </body>

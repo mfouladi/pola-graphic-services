@@ -154,6 +154,10 @@
 					<input type='submit' name="submit" class='button' value="Submit">
 				</div>
 				
+				<div class="back">
+					<input type='button' name="back" class='button' value="Back" onclick="location.href = ''">
+				</div>
+				
 			</div>
         </div>
    </body>

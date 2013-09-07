@@ -4,6 +4,7 @@
    width: 155px;
    height: 37px;
    background: url(../Images/button_bg.png) no-repeat;
+   background-color: #ffffff;
    /*line-height: 37px;
    vertical-align: text-middle;*/
    text-align: center;
@@ -13,8 +14,8 @@
    font-weight: bold;
    font-style: normal;
    text-shadow: none;
-   margin-left: 30px;
-   margin-right:30px;
+   /*margin-left: 30px;
+   margin-right:30px;*/
    
 }
 .button:hover, .button:focus{
@@ -22,4 +23,20 @@
 }
 .button > span {
    display: -moz-inline-block;
+}
+
+.submit{
+	text-align:center;
+}
+
+.back{
+	text-align:left;
+}
+
+.back input{
+	
+	width:80px;
+	height:30px;
+	margin-bottom:10px;
+	background-size: 100% 100%;
 }

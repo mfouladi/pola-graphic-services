@@ -15,9 +15,9 @@
 	$input_password=$_POST['password'];
 	
 	//Run a Select Query on User Table with Email Address
-	$sql = "SELECT * FROM users WHERE email='$portEmail'";
+	$sql = "SELECT * FROM users WHERE email= ?";
 	$res = odbc_prepare($connection, $sql);
-	$success = odbc_execute($res);
+	$success = odbc_execute($res, array($portEmail));
 	
 	//Run a Select Query on User Table with Input Email Address
 	$count = odbc_num_rows($res);
