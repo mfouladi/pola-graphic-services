@@ -22,12 +22,12 @@
 	<div class = "container">
 		<div class="nav">
 			<ul>
-				<li><a href="admin/" title="">Home</a></li>
-				<li><a href="admin/" title="">Current Jobs</a></li>
-				<li><a href="admin/" title="">New Requests</a></li>
-				<li><a href="admin/users.php" title="">User Management</a></li>
-				<li><a href="admin/" title="">Completed Jobs</a></li>
-				<li><a href="admin/" title="">Archive</a></li>
+				<a href="admin/" title=""><li>Home</li></a>
+				<a href="admin/" title=""><li>Current Jobs</li></a>
+				<a href="admin/" title=""><li>New Requests</li></a>
+				<a href="admin/users.php" title=""><li>User Management</li></a>
+				<a href="admin/" title=""><li>Completed Jobs</li></a>
+				<a href="admin/" title=""><li>Archive</li></a>
 			</ul>
 		</div>
 		<div class="wrapper">
@@ -35,10 +35,11 @@
 				<h1>Graphics Service Request</h1>
 			</div>
 			<div class="content">
-				<div class="table_header" id="admin_header">
+				<div class="section table_header" id="admin_header">
 					<h1>Admin Table</h1>
 					<img src="Images/dropDownArrow.png" id="admin_down" title="false">
 				</div>
+				
 				<div class="section hidden" id="admin_table">
 					<table>
 						<tr>
@@ -126,7 +127,7 @@
 					</table>
 				</div>
 				
-				<div class="table_header" id="tech_header">
+				<div class="section table_header" id="tech_header">
 					<h1>Technician Table</h1>
 					<img src="Images/dropDownArrow.png" id="tech_down" title="false">
 				</div>
@@ -216,7 +217,7 @@
 					</table>
 				</div>
 				
-				<div class="table_header" id="user_header">
+				<div class="section table_header" id="user_header">
 					<h1>User Table</h1>
 					<img src="Images/dropDownArrow.png" id="user_down" title="false">
 				</div>
@@ -313,45 +314,39 @@
 	<script src="js/jquery.js"></script>
 	<script>
 		$("#admin_down").on("click", function() {
-			$(".hidden").css("display", "none");
 			var isDown = $("#admin_down").attr("title");
-			console.log(isDown);
 			if(isDown === "false"){
 				$("#admin_down").attr("title", "true");
-				$("#tech_down").attr("title", "false");
-				$("#user_down").attr("title", "false");
 				$("#admin_table").css("display","block");
+				$("#admin_down").attr("src", "Images/pullUpArrow.png");
 			}else{
 				$("#admin_down").attr("title", "false");
 				$("#admin_table").css("display","none");
+				$("#admin_down").attr("src", "Images/dropDownArrow.png");
 			}
 		});
 		$("#tech_down").on("click", function() {
-			$(".hidden").css("display", "none");
 			var isDown = $("#tech_down").attr("title");
-			console.log(isDown);
 			if(isDown === "false"){
 				$("#tech_down").attr("title", "true");
-				$("#admin_down").attr("title", "false");
-				$("#user_down").attr("title", "false");
 				$("#tech_table").css("display","block");
+				$("#tech_down").attr("src", "Images/pullUpArrow.png");
 			}else{
 				$("#tech_down").attr("title", "false");
 				$("#tech_table").css("display","none");
+				$("#tech_down").attr("src", "Images/dropDownArrow.png");
 			}
 		});
 		$("#user_down").on("click", function() {
-			$(".hidden").css("display", "none");
 			var isDown = $("#user_down").attr("title");
-			console.log(isDown);
 			if(isDown === "false"){
 				$("#user_down").attr("title", "true");
-				$("#tech_down").attr("title", "false");
-				$("#admin_down").attr("title", "false");
 				$("#user_table").css("display","block");
+				$("#user_down").attr("src", "Images/pullUpArrow.png");
 			}else{
 				$("#user_down").attr("title", "false");
 				$("#user_table").css("display","none");
+				$("#user_down").attr("src", "Images/dropDownArrow.png");
 			}
 		});
 			

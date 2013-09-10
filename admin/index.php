@@ -22,12 +22,12 @@
 	<div class = "container">
 		<div class="nav">
 			<ul>
-				<li><a href="admin/" title="">Home</a></li>
-				<li><a href="admin/" title="">Current Jobs</a></li>
-				<li><a href="admin/" title="">New Requests</a></li>
-				<li><a href="admin/users.php" title="">User Management</a></li>
-				<li><a href="admin/" title="">Completed Jobs</a></li>
-				<li><a href="admin/" title="">Archive</a></li>
+				<a href="admin/" title=""><li>Home</li></a>
+				<a href="admin/" title=""><li>Current Jobs</li></a>
+				<a href="admin/" title=""><li>New Requests</li></a>
+				<a href="admin/users.php" title=""><li>User Management</li></a>
+				<a href="admin/" title=""><li>Completed Jobs</li></a>
+				<a href="admin/" title=""><li>Archive</li></a>
 			</ul>
 		</div>
 		<div class="wrapper">

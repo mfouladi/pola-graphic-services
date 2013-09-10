@@ -69,11 +69,12 @@ p.introduction {
 	margin: 5px 0 5px 5px;
 	padding: 5px 0 5px 5px;
 	border: 0;
+	color: #FFFFFF;
 }
 
-.nav li a{
+.nav a{
 	text-decoration: none;
-	color: #FFFFFF;
+	
 }
 
 .nav li:hover{
@@ -118,7 +119,14 @@ p.introduction {
 	text-align: center;
 }
 
+.table_header h1{
+	display: inline;
+}
 
+.table_header img{
+	width: 20px;
+	display: inline;
+}
 
 .hidden{
 	display: none;
@@ -133,8 +141,34 @@ p.introduction {
 	border-right: 18px solid #c1c1c1;
 	border-bottom: 18px solid #c1c1c1;
 	overflow: hidden;
+	text-align: left;
 }
 
 .submit{
 	padding: 10px 0 10px 0;
 }
+
+.section table{
+	table-layout: fixed;
+	width: 100%;
+}
+
+.section tr,select{
+    width:100%;
+	word-wrap: break-word;
+}
+
+.section input{
+    width:90%;
+	word-wrap: break-word;
+}
+
+.section tr:nth-child(even) {
+    background-color: #CCCCCC;
+}
+
+.section tr:nth-child(odd) {
+    background-color: #888888;
+}
+
+
