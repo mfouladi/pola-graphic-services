@@ -35,7 +35,7 @@
 			<div class="content">
 				<div class="table_wrapper">
 				
-					<form action="copy_center_form_submit.php" method="post">
+					<form action="copy_center_form/copy_center_submit.php" method="post">
 					
 						<div class="section" id="job_name">
 							<b>Job Name</b>
@@ -267,8 +267,7 @@
 								</ul>
 							</td>
 						</table>
-						
-						
+									
 						<table class="" id="PrintingOptions">
 							<tr>
 								<td>

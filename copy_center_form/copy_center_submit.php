@@ -1,63 +1,47 @@
 <?php
 	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
-?>
-<?php
-	$db_host="POLA-SQLTEST"; // Host name
-	$db_user="graphics"; // Mysql username
-	$db_pwd="Graphics@service"; // Mysql password
-	$db_name="Graphics_Services"; // Database name
+	$srvr_name="POLA-SQLTEST"; // Server Name
+	$db_user="graphics"; // Database Username
+	$db_pwd="Graphics@service"; // Database Password
+	$db_name="Graphics_Services"; // Database Name
 	$tbl_name="users"; // Table name
 ?>
 <?php
 	//Connect to the Database
 	$connection = odbc_connect("Driver={SQL Server};Server=$srvr_name;Database=$db_name",$db_user,$db_pwd );
-	
-	//Receive Posts from Form
-	$portEmail = $_POST['portEmail'];
-	$input_password=$_POST['password'];
-	
-	//Run a Select Query on User Table with Email Address
-	$sql = "SELECT * FROM users WHERE email= ?";
-	$res = odbc_prepare($connection, $sql);
-	$success = odbc_execute($res, array($portEmail));
-	
-	//Run a Select Query on User Table with Input Email Address
-	$count = odbc_num_rows($res);
-	
-	//Unset any previously saved session variables
-	session_unset();	
-	
-	//Starts Saving Specified Data in Current Session
-	session_start(); 
-	$_SESSION['email'] = $portEmail;
-	$_SESSION['validEmail']= FALSE;
-	$_SESSION['validAccess']= FALSE;
-	$_SESSION['validPassword']= FALSE;
-	$uri = 'admin_login.php';
-	if($count === 1){
-		$_SESSION['validEmail']= TRUE;
-		$accessType = odbc_result($res, "access_type");
-		if($accessType > 0){
-			$_SESSION['validAccess']= TRUE;
-			
-			$_SESSION['firstName'] = odbc_result($res, "first_name");
-			$_SESSION['lastName'] = odbc_result($res, "last_name");
-			$_SESSION['division'] = odbc_result($res, "division");
-			$_SESSION['phoneNumber'] = odbc_result($res, "phone_number");
-			
-			$real_password = odbc_result($res, "password");
-			
-			if($real_password === NULL){
-				$real_password = "";
-				//Should set up password
-			}
-			if($real_password === $input_password){
-				$_SESSION['validPassword']= TRUE;
-				$uri = 'admin/';
-			}
-			
-		}	
-	}
-	header("Location: $host$uri");	
 
+	//Received Saved Data in Current Session
+	session_start();
+	$portEmail = $_SESSION['email'];
+
+	//Receive Posts from Form
+echo "<p>";
+echo $_POST['project_title'],'<br>';
+	$job_name = $_POST['project_title'];
+echo $job_name,'<br>';
+	$due_date_string =$_POST['year']."/".$_POST['month']."/".$_POST['day']." ".$_POST['hour'].":".$_POST['minute'].":00";
+echo $due_date_string, '<br>';
+	//Produce DateTimes
+	$current_datetime = new DateTime();
+	$expected_datetime = new DateTime($due_date_string);
+
+echo "Data:<br>";
+echo $current_datetime->format('Y-m-d H:i:s'), '<br>';
+echo $expected_datetime->format('Y-m-d H:i:s'), '<br>';
+echo $job_name, '<br>';
+echo $portEmail, '<br>';
+echo "</p>";
+	
+
+	//Run a Select Query on User Table with Email Address
+	$sql = "INSERT INTO requests (requester, date_requested, date_expected, job_description) VALUES(?,?,?,?)";
+	$res = odbc_prepare($connection, $sql) or die (odbc_errormsg());
+	$success = odbc_execute($res, 
+		array($portEmail, $current_datetime->format('Y-m-d H:i:s'),
+							 $expected_datetime->format('Y-m-d H:i:s'), $job_name))
+							or die (odbc_errormsg());
+	if($success)
+		echo "<p>Success</p>";
+	else
+		echo "<p>Failed</p>";
 ?>
