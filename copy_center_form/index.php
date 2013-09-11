@@ -34,8 +34,75 @@
 			</div>
 			<div class="content">
 				<div class="table_wrapper">
-					<form action="" method="post">
+				
+					<form action="copy_center_form_submit.php" method="post">
 					
+						<div class="section" id="job_name">
+							<b>Job Name</b>
+							<input type="text" name="project_title">
+						</div>
+						
+						<div class="section" id="select_date_time">
+							<b>Date Due:</b>
+							<select name="month">
+								<option value="1" >January</option>
+								<option value="2" >February</option>
+								<option value="3" >March</option>
+								<option value="4" >April</option>
+								<option value="5" >May</option>
+								<option value="6" >June</option>
+								<option value="7" >July</option>
+								<option value="8" >August</option>
+								<option value="9" >September</option>
+								<option value="10" >October</option>
+								<option value="11" >November</option>
+								<option value="12" >December</option>
+							</select>
+							<select name="day">
+								<?php
+									/*Display Select Menu For Days of the Month*/
+									for($day=1;$day<29;$day++){
+										echo "<option value=\"$day\">$day</option>\n\t\t\t\t\t\t";
+									}
+									for($day=29;$day<=31;$day++){
+										echo "<option name=\"added_day\" value=\"$day\">$day</option>\n\t\t\t\t\t\t";
+									}
+								?>
+							</select>
+							<select name="year">
+								 <?php
+									$year = (int) date('Y');
+									for($i=0;$i<4;$i++){
+										echo "<option value=\"$year\">$year</option>\n\t\t\t\t\t\t";
+										$year += 1;
+									}
+								?>
+							</select>
+							<b>Time:</b>
+							<select name="hour">
+								<?php
+									for($hour=1;$hour<=12;$hour++){
+										$hr_str = number_format((float)$hour);
+										$hr_str = str_pad ( $hr_str, 2, $pad_string = "0", $pad_type = STR_PAD_LEFT );
+										echo "<option value=\"$hr_str\">$hr_str</option>\n\t\t\t\t\t\t";
+									}
+								?>
+							</select>
+							<select name="minute">
+								<?php
+									for($minute=0;$minute<60;$minute+=5){
+										$min_str = number_format((float)$minute);
+										$min_str = str_pad ( $min_str, 2, $pad_string = "0", $pad_type = STR_PAD_LEFT );
+										echo "<option value=\"$min_str\">$min_str</option>\n\t\t\t\t\t\t";
+									}
+								?>
+							</select>
+							<select name="ampm">
+								<option value="am" >AM</option>
+								<option value="pm" >PM</option>
+							</select>
+						</div>
+						
 						<table class="" id="CopyDetails">
 							<tr>
 								<td colspan="2">
@@ -257,6 +324,6 @@
 			</div>
 		</div>
     </body>
-</html>"
+</html>
 
 

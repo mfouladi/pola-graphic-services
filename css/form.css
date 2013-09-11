@@ -38,7 +38,6 @@ body{
 }
 
 .section{
-	border-bottom: 1px solid #bebebe;
 	width: 100%;
 	padding: 0 0 15px 0;
 }
@@ -52,7 +51,6 @@ body{
 #job_name input{
 	width: 500px;
 	border:1px solid gray;
-	text-align: center;
 }
 
 
@@ -70,24 +68,44 @@ body{
 	border-right: 18px solid #c1c1c1;
 	border-bottom: 18px solid #c1c1c1;
 	overflow: hidden;
+	text-align: left;
+	
 }
 
 .submit{
 	padding: 10px 0 10px 0;
 }
-/*
+li{
+	list-style-type: none;
+}
+
+table, th, td, tr{
+	vertical-align:top;
+	text-align: left;
+}
+
 table{
 	width:100%;
+	height: 100%;
 	table-layout: auto;
-	vertical-align:top;
-	margin: 10px 0px;
+
+	margin: 0;
+	padding: 0;
+	
 }
 tr{
-	height: 100%
+	height: 100%;
 }
 td{
 	font-weight: bold;
+
 }
+ul,li{
+	margin-left: 0;
+	padding-left: 0;
+	border-left: 0;
+}
+
 ul{
 	list-style-type: none;
 	text-align: left;
@@ -97,5 +115,5 @@ input, select{
 }
 label{
 	font-weight: normal;
-}*/
+}
 
