@@ -15,11 +15,11 @@
 	$requestType="";
 	
 	//Determine Which Button Was Clicked on Form
-	if($_POST['copyCenter']){
+	if(isset($_POST['copyCenter'])){
 		$requestType=$_POST['copyCenter'];
-	}else if($_POST['audioVideo']){
+	}else if(isset($_POST['audioVideo'])){
 		$requestType=$_POST['audioVideo'];
-	}else if($_POST['design']){
+	}else if(isset($_POST['design'])){
 		$requestType=$_POST['design'];
 	}
 	
