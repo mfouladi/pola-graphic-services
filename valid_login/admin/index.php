@@ -27,7 +27,7 @@
 	
 	//Starts Saving Specified Data in Current Session
 	session_start(); 
-	$_SESSION['email'] = $portEmail;
+	$_SESSION['portEmail'] = $portEmail;
 	$_SESSION['validEmail']= FALSE;
 	$_SESSION['validAccess']= FALSE;
 	$_SESSION['validPassword']= FALSE;

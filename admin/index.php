@@ -8,6 +8,37 @@
 	$db_name="Graphics_Services"; // Database name
 	$tbl_name="users"; // Table name
 ?>
+<?php
+	session_start();
+	
+	//Initialize Variables
+	$portEmail = '';
+	
+	//Address of admin login page
+	$uri = "admin_login.php";
+	
+	//If User input in an invalid email
+	//Display Email Error Message in HTML
+	if(isset($_SESSION['validEmail']) && $_SESSION['validEmail']){
+		if(isset($_SESSION['portEmail'])){
+			$portEmail = $_SESSION['portEmail'];
+		}
+	}else{
+		header("Location: $host$uri");
+	}
+	
+	//If User input in an invalid password
+	//Display Password Error Message in HTML
+	if(!isset($_SESSION['validPassword']) || !$_SESSION['validPassword']){
+			header("Location: $host$uri");
+	}
+	
+	//If User is not allowed access as admin or technician
+	//Go Back to Admin Login Page
+	if(!isset($_SESSION['validAccess']) || !$_SESSION['validAccess']){
+			header("Location: $host$uri");
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>

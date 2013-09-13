@@ -8,6 +8,39 @@
 	$db_name="Graphics_Services"; // Database name
 	$tbl_name="users"; // Table name
 ?>
+<?php
+	session_start();
+	
+	//Initialize Variables
+	$portEmail = '';
+	
+	//If User input in an invalid email
+	//Display Email Error Message in HTML
+	if(isset($_SESSION['validEmail'])){
+		if(!$_SESSION['validEmail']){
+			header("Location: $host");
+		}
+		if(isset($_SESSION['portEmail'])){
+			$portEmail = $_SESSION['portEmail'];
+		}
+	}
+	
+	//If User input in an invalid password
+	//Display Password Error Message in HTML
+	if(isset($_SESSION['validPassword'])){
+		if(!$_SESSION['validPassword']){
+			header("Location: $host");
+		}
+	}
+	
+	//If User is not allowed access as admin or technician
+	//Go Back to Admin Login Page
+	if(isset($_SESSION['validAccess'])){
+		if(!$_SESSION['validAccess']){
+			header("Location: $host");
+		}
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>

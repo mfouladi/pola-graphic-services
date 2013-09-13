@@ -14,7 +14,6 @@
 	//Display Email Error Message in HTML
 	if(isset($_SESSION['validEmail'])){
 		$displayEmailError = !$_SESSION['validEmail'];
-		$portEmail = '';
 		if(isset($_SESSION['portEmail'])){
 			$portEmail = $_SESSION['portEmail'];
 		}
@@ -31,9 +30,7 @@
 	if(isset($_SESSION['validAccess'])){
 		$displayAccessError = !$_SESSION['validAccess'];
 	}
-	
-	//Unset any previously saved session variables
-	session_unset();
+
 ?>
 <!DOCTYPE html>
 <html>
