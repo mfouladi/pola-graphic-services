@@ -12,6 +12,7 @@
 	
 	//Receive Posts from Form
 	$portEmail = $_POST['portEmail'];
+	$requestType="";
 	
 	//Determine Which Button Was Clicked on Form
 	if($_POST['copyCenter']){
