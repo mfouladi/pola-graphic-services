@@ -12,7 +12,7 @@
 
 	//Received Saved Data in Current Session
 	session_start();
-	$portEmail = $_SESSION['email'];
+	$portEmail = $_SESSION['portEmail'];
 
 	//Receive Posts from Form
 echo "<p>";

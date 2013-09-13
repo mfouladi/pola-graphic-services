@@ -36,7 +36,7 @@
 	
 	//Starts Saving Specified Data in Current Session
 	session_start(); 
-	$_SESSION['email'] = $portEmail;
+	$_SESSION['portEmail'] = $portEmail;
 	$_SESSION['requestType'] = $requestType;
 	$_SESSION['validEmail']= FALSE;
 	$uri = '';
