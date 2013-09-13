@@ -1,8 +1,15 @@
 <?php
-	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
+	$host = "http://".$_SERVER['HTTP_HOST']."/GraphicServices/";
 ?>
 <?php
 	session_start();
+	
+	//Initialize Variables
+	$portEmail = '';
+	
+	//If Email is Valid and Request Type
+	//Matches current page, stay on this page
+	//Otherwise go back to the login page
 	if(isset($_SESSION['validEmail'])){
 		$isValidEmail = $_SESSION['validEmail'];
 		$requestType = $_SESSION['requestType'];
@@ -11,7 +18,6 @@
 			//Unset any previously saved session variables
 			session_unset();
 		}else{
-			$portEmail = '';
 			$portEmail = $_SESSION['portEmail'];
 		}
 	}else{

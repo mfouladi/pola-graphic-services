@@ -1,5 +1,5 @@
 <?php
-	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
+	$host = "http://".$_SERVER['HTTP_HOST']."/GraphicServices/";
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,5 +1,5 @@
 <?php
-	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
+	$host = "http://".$_SERVER['HTTP_HOST']."/GraphicServices/";
 	$srvr_name="POLA-SQLTEST"; // Server Name
 	$db_user="graphics"; // Database Username
 	$db_pwd="Graphics@service"; // Database Password

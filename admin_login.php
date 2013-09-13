@@ -1,27 +1,37 @@
 <?php
-	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
+	$host = "http://".$_SERVER['HTTP_HOST']."/GraphicServices/";
 ?>
 <?php
 	session_start();
+	
+	//Initialize Variables
+	$portEmail = '';
+	$displayEmailError = False;
+	$displayPasswordError = False;
+	$displayAccessError = False;
+	
+	//If User input in an invalid email
+	//Display Email Error Message in HTML
 	if(isset($_SESSION['validEmail'])){
-		$isValidEmail = $_SESSION['validEmail'];
+		$displayEmailError = !$_SESSION['validEmail'];
 		$portEmail = '';
 		if(isset($_SESSION['portEmail'])){
 			$portEmail = $_SESSION['portEmail'];
 		}
-	}else{
-		$isValidEmail = TRUE;
 	}
+	
+	//If User input in an invalid password
+	//Display Password Error Message in HTML
 	if(isset($_SESSION['validPassword'])){
-		$isValidPassword = $_SESSION['validPassword'];
-	}else{
-		$isValidPassword = TRUE;
+		$displayPasswordError = !$_SESSION['validPassword'];
 	}
+	
+	//If User is not allowed access as admin or technician
+	//Display Access Error Message in HTML
 	if(isset($_SESSION['validAccess'])){
-		$isValidAccess = $_SESSION['validAccess'];
-	}else{
-		$isValidAccess = TRUE;
+		$displayAccessError = !$_SESSION['validAccess'];
 	}
+	
 	//Unset any previously saved session variables
 	session_unset();
 ?>
@@ -47,11 +57,11 @@
 			<form method="post" action="valid_login/admin/" class="order-form" id="order">
 				<p class="login-error">
 					<?php
-					if(!$isValidEmail){
+					if($displayEmailError){
 						echo "Please Check Your Email and Try Again.";
-					}else if(!$isValidAccess){
+					}else if($displayAccessError){
 						echo "You have not been granted the privledge to access. Please talk to a Graphics Department Administrator to gain access.";
-					}else if(!$isValidPassword){
+					}else if($displayPasswordError){
 						echo "Please Check Your Password and Try Again."; 
 					}
 					?>

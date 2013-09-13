@@ -1,16 +1,21 @@
 <?php
-	$host = "http://".$_SERVER['HTTP_HOST']."/pola-graphic-services/";
+	$host = "http://".$_SERVER['HTTP_HOST']."/GraphicServices/";
 ?>
 <?php
 	session_start();
+	//Create Empty Variable for Email Addrss
+	$portEmail = '';
+	$displayEmailError = False;
+	
+	//If previously entered email is Invalid
+	//Display Error Message for User in HTML
 	if(isset($_SESSION['validEmail'])){
-		$isValidEmail = $_SESSION['validEmail'];
-		$portEmail = '';
+		
+		//If Email is Valid, Do Not Display Email Error Message
+		$displayEmailError = !$_SESSION['validEmail'];
 		if(isset($_SESSION['portEmail'])){
 			$portEmail = $_SESSION['portEmail'];
 		}
-	}else{
-		$isValidEmail = TRUE;
 	}
 	//Unset any previously saved session variables
 	session_unset();
@@ -37,7 +42,7 @@
 			<form method="post" action="valid_login/user/" class="order-form" id="order">
 				<p class="login-error">
 					<?php
-					if(!$isValidEmail){
+					if($displayEmailError){
 						echo "Please Check Your Email and Try Again.";
 					}
 					?>
