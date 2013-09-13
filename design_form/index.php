@@ -42,7 +42,7 @@
 			</div>
 			<div class="content">
 				
-				<form action="design_form_submit.php" method="post">
+				<form action="design_form/design_submit.php" method="post">
 				
 					<div class="section" id="job_name">
 						<b>Job Name</b>

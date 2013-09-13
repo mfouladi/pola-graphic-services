@@ -46,7 +46,7 @@
 					<input type="text" name="project_title">
 				</div>
 				
-				<form action="av_form_submit.php" method="post">
+				<form action="av_form/av_submit.php" method="post">
 				
 					<div class="section" id="select_date_time">
 						<b>Date Due:</b>
